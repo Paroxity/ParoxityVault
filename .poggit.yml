@@ -5,4 +5,9 @@ branches:
 projects:
   ParoxityVault:
     path: ""
+    libs:
+    - src: poggit/libasynql/libasynql
+      version: ^3.3.0
+    - src: SOF3/await-generator/await-generator
+      version: ^3.0.0
 ...
