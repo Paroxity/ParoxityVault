@@ -26,7 +26,7 @@ class VaultDatabase extends AwaitDatabase{
 		$connector->executeGeneric(RecordsQuery::INIT_NAME_RECORDS);
 		$connector->waitAll();
 
-		parent::__construct($connector);
+		parent::__construct($vault, $connector);
 	}
 
 	public function close(): void{
