@@ -26,6 +26,7 @@ class ParoxityVault extends PluginBase{
 		$this->saveDefaultConfig();
 
 		$this->database = new VaultDatabase($this);
+		$this->database->init();
 
 		$this->records = new Records($this);
 		$this->nameRecords = new NameRecords($this);

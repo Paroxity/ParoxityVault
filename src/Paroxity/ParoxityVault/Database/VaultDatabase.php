@@ -27,7 +27,15 @@ final class VaultDatabase extends AwaitDatabase{
 			]
 		);
 
-		parent::__construct($plugin, $connector); // this needs to be called before the next
+		parent::__construct($plugin, $connector);
+	}
+
+	/**
+	 * @internal
+	 */
+	public function init(): void{
+		$plugin = $this->plugin;
+		$connector = $this->connector;
 
 		self::loadQueryFile($plugin->getResource("stmts/mysql/records/records.sql"));
 		self::loadQueryFile($plugin->getResource("stmts/mysql/records/name_records.sql"));
