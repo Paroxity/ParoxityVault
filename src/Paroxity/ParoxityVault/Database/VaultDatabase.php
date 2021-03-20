@@ -5,9 +5,12 @@ namespace Paroxity\ParoxityVault\Database;
 
 use Paroxity\ParoxityVault\ParoxityVault;
 use Paroxity\ParoxityVault\Records\RecordsQuery;
+use pocketmine\utils\SingletonTrait;
 use poggit\libasynql\libasynql;
 
-class VaultDatabase extends AwaitDatabase{
+final class VaultDatabase extends AwaitDatabase{
+
+	use SingletonTrait;
 
 	public function __construct(ParoxityVault $vault){
 		$config = $vault->getConfig();
@@ -27,10 +30,13 @@ class VaultDatabase extends AwaitDatabase{
 		$connector->waitAll();
 
 		parent::__construct($vault, $connector);
+		self::setInstance($this);
 	}
 
 	public function close(): void{
-		$this->connector->close();
-		$this->connector->waitAll();
+		$this->getConnector()->close();
+		$this->getConnector()->waitAll();
+
+		self::reset();
 	}
 }

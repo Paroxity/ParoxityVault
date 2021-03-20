@@ -7,13 +7,20 @@ use Paroxity\ParoxityVault\Database\VaultDatabase;
 use Paroxity\ParoxityVault\Records\NameRecords;
 use Paroxity\ParoxityVault\Records\Records;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\SingletonTrait;
 
 class ParoxityVault extends PluginBase{
+
+	use SingletonTrait;
 
 	private VaultDatabase $database;
 
 	private Records $records;
 	private NameRecords $nameRecords;
+
+	public function onLoad(){
+		self::setInstance($this);
+	}
 
 	public function onEnable(){
 		$this->saveDefaultConfig();
@@ -28,6 +35,7 @@ class ParoxityVault extends PluginBase{
 
 	public function onDisable(){
 		$this->database->close();
+		self::reset();
 	}
 
 	public function getDatabase(): VaultDatabase{
