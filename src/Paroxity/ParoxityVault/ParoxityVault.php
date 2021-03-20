@@ -26,6 +26,10 @@ class ParoxityVault extends PluginBase{
 		$this->getServer()->getPluginManager()->registerEvents(new VaultListener($this), $this);
 	}
 
+	public function onDisable(){
+		$this->database->close();
+	}
+
 	public function getDatabase(): VaultDatabase{
 		return $this->database;
 	}
