@@ -1,0 +1,16 @@
+database:
+  # mysql only
+  type: mysql
+
+  mysql:
+    # link to database
+    host: "127.0.0.1"
+    username: "root"
+    password: ""
+    # the database name
+    # make sure that the database exists
+    # change name if necessary
+    schema: "paroxityvault"
+
+    # only change if you know what you are doing
+    worker-limit: 2
