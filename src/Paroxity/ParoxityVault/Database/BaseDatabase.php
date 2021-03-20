@@ -8,16 +8,16 @@ use poggit\libasynql\DataConnector;
 
 abstract class BaseDatabase{
 
-	protected ParoxityVault $vault;
+	protected ParoxityVault $plugin;
 	protected DataConnector $connector;
 
-	public function __construct(ParoxityVault $vault, DataConnector $connector){
-		$this->vault = $vault;
+	public function __construct(ParoxityVault $plugin, DataConnector $connector){
+		$this->plugin = $plugin;
 		$this->connector = $connector;
 	}
 
-	public function getVault(): ParoxityVault{
-		return $this->vault;
+	public function getPlugin(): ParoxityVault{
+		return $this->plugin;
 	}
 
 	public function getConnector(): DataConnector{
