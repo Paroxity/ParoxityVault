@@ -8,7 +8,7 @@
 
 ### Features:
 
- - MySQL support. (SQLite is planned)
+ - MySQL and SQLite support.
  - Single database.
  - Simple API.
  - Easy management.
