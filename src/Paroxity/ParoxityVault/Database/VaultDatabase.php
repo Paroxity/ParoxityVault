@@ -23,7 +23,8 @@ final class VaultDatabase extends AwaitDatabase{
 			$plugin,
 			$config->get("database"),
 			[
-				"mysql" => "stmts/mysql/sql.sql"
+				"mysql" => "stmts/mysql/sql.sql",
+				"sqlite" => "stmts/sqlite/sql.sql"
 			]
 		);
 
@@ -39,6 +40,9 @@ final class VaultDatabase extends AwaitDatabase{
 
 		self::loadQueryFile($plugin->getResource("stmts/mysql/records/records.sql"));
 		self::loadQueryFile($plugin->getResource("stmts/mysql/records/name_records.sql"));
+
+		self::loadQueryFile($plugin->getResource("stmts/sqlite/records/records.sql"), self::TYPE_SQLITE);
+		self::loadQueryFile($plugin->getResource("stmts/sqlite/records/name_records.sql"), self::TYPE_SQLITE);
 
 		$connector->executeGeneric(RecordsQuery::INIT_RECORDS);
 		$connector->executeGeneric(RecordsQuery::INIT_NAME_RECORDS);

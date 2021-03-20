@@ -1,6 +1,9 @@
 database:
-  # mysql only
+  # mysql, sqlite
   type: mysql
+
+  sqlite:
+    file: "vault.sqlite"
 
   mysql:
     # link to database
