@@ -8,8 +8,8 @@ use poggit\libasynql\DataConnector;
 
 abstract class BaseDatabase{
 
-	private ParoxityVault $vault;
-	private DataConnector $connector;
+	protected ParoxityVault $vault;
+	protected DataConnector $connector;
 
 	public function __construct(ParoxityVault $vault, DataConnector $connector){
 		$this->vault = $vault;

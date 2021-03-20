@@ -34,8 +34,8 @@ final class VaultDatabase extends AwaitDatabase{
 	}
 
 	public function close(): void{
-		$this->getConnector()->close();
-		$this->getConnector()->waitAll();
+		$this->connector->close();
+		$this->connector->waitAll();
 
 		self::reset();
 	}
