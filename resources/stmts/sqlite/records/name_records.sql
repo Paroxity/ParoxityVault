@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS name_records (
     id VARCHAR(100) PRIMARY KEY,
     uuid VARCHAR(36),
     display_name VARCHAR(16),
-    FOREIGN KEY (uuid) REFERENCES records(uuid)
+    FOREIGN KEY (uuid) REFERENCES records(uuid) ON DELETE CASCADE
 );
 -- #    }
 
